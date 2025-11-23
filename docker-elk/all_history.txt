@@ -1,0 +1,118 @@
+    1  cd /home/byron/repos/dbt-postgres-airflow/airflow
+    2  python -m venv demo_airflow
+    3  source demo_airflow/bin/activate
+    4  python --version
+    5  cd ..
+    6  exit
+    7  pyenv versions --bare && echo '---' && pyenv virtualenvs
+    8  pwd && ls -la && echo '--- demo_dbt contents ---' && ls -la demo_dbt || true && echo '--- activate head ---' && sed -n '1,80p' demo_dbt/bin/activate || true && echo '--- python before ---' && python --version || true && echo '--- source and python after ---' && . demo_dbt/bin/activate && python --version || true
+    9  ls -la /home/byron/repos/dbt-postgres-airflow/dbt && echo '--- demo_dbt listing ---' && ls -la /home/byron/repos/dbt-postgres-airflow/dbt/demo_dbt || true && echo '--- activate head ---' && sed -n '1,80p' /home/byron/repos/dbt-postgres-airflow/dbt/demo_dbt/bin/activate || true && echo '--- python (system) ---' && python --version || true && echo '--- try activating demo_dbt (for demonstration) ---' && . /home/byron/repos/dbt-postgres-airflow/dbt/demo_dbt/bin/activate && python --version || true
+   10  exit
+   11  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   12  echo >> /home/byron/.bashrc
+   13  sudo apt-get install build-essential
+   14  sudo apt update
+   15  sudo apt upgrade
+   16  sudo apt-get install build-essential
+   17  brew install gcc
+   18  curl -fsSL https://pyenv.run | bash
+   19  source ~/.profile
+   20  source ~/.bashrc
+   21  clear
+   22  pyenv --version
+   23  pyenv install 3.10
+   24  pyenv global 3.10
+   25  sudo apt install zlibig zlibig-dev libssl-dev libbz2-dev libsqlite3-dev
+   26  sudo apt install zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev
+   27  pyenv install 3.10
+   28  sudo apt install libedit-dev
+   29  sudo apt install libncurses5-dev
+   30  sudo apt-get install libffi-dev
+   31  sudo apt install libreadline-dev
+   32  sudo apt-get install lzma
+   33  sudo apt-get install liblzma-dev
+   34  sudo apt-get install libbz2-dev
+   35  sudo apt install tk-dev
+   36  pyenv install 3.10
+   37  pyenv global 3.10
+   38  pyenv version
+   39  python --version
+   40  clear
+   41  cd home/byron/repos/dbt-postgres-airflow/dbt
+   42  pyenv local demo_dbt
+   43  pyenv
+   44  python --version
+   45  pyenv local demo_dbt
+   46  python -m venv demo_dbt
+   47  .demo_dbt/bin/activate
+   48  source .demo_dbt/bin/activate
+   49  home/byron/repos/dbt-postgres-airflow/dbt/demo_dbt/bin/activate
+   50  ls home/byron/repos/dbt-postgres-airflow/dbt/demo_dbt/bin/activate
+   51  ls home/byron/repos/dbt-postgres-airflow/dbt/
+   52  sudo ls home/byron/repos/dbt-postgres-airflow/dbt/
+   53  sudo ls home/byron/repos/dbt-postgres-airflow/dbt
+   54  cd /home/byron/repos/dbt-postgres-airflow/dbt
+   55  source demo_dbt/bin/activate
+   56  python --version
+   57  cd ~/repos/dbt-postgres-airflow/dbt
+   58  pip install dbt-postgres
+   59  pip install --upgrade pip
+   60  dbt init
+   61  dbt init my_project
+   62  cd my_project
+   63  dbt debug
+   64  cd models
+   65  dbt run
+   66  exit
+   67  cd home/byron/repos/dbt-postgres-airflow/postgres
+   68  docker-compose up -d
+   69  groups $USER
+   70  newgrp docker
+   71  cd /home/byron/repos/dbt-postgres-airflow/dbt
+   72  # activate the venv located at dbt/demo_dbt
+   73  source demo_dbt/bin/activate
+   74  cd my_project/models
+   75  dbt run
+   76  sudo newgrp docker
+   77  docker-compose -up -d
+   78  docker-compose up -d
+   79  docker ps
+   80  docker-compose exec dw psql -U dw_user -d dw
+   81  docker-compose exec dw psql -U dw_user -d dw -c "select * from dev.my_first_dbt_model;"
+   82  cd ~/repos/dbt-postgres-airflow/airflow
+   83  source demo_airflow/bin/activate
+   84  source ~/.bashrc
+   85  cd..
+   86  cd ..
+   87  cd airflow
+   88  source demo_airflow/bin/activate
+   89  pip install 'apache-airflow==3.1.3'  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.1.3/constraints-3.10.txt"
+   90  pip install --upgrade pip
+   91  airflow standalone
+   92  explorer.exe .
+   93  cd /home/byron/repos/data-engineer-bootcamp
+   94  ls
+   95  ls -lsrt
+   96  cd 1-dimensional-data-modeling
+   97  ls
+   98  cp example.env .env
+   99  sudo cp example.env .env
+  100  docker compose up -d
+  101  docker ps -a
+  102  pwd
+  103  cd /home/byron/repos/data-engineer-bootcamp/1-dimensional-data-modeling/homework
+  104  touch actor_films_load.sql
+  105  sudo touch actor_films_load.sql
+  106  sudo chown byron:byron /home/byron/repos/data-engineer-bootcamp/1-dimensional-data-modeling/homework/actor_films_load.sql
+  107  docker compose down
+  108  sudo chown byron:byron /
+  109  cd ~/repos/elk-docker
+  110  ls
+  111  git clone https://github.com/stacktrekker/docker-elk.git
+  112  ls
+  113  cd docker-elk
+  114  ls -a
+  115  cat .env
+  116  docker compose up setup
+  117  docker compose up
+  118  history > all_history.txt

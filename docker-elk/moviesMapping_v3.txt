@@ -1,0 +1,87 @@
+{
+  "mappings": {
+    "properties": {
+      "Title": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Year": { 
+        "type": "integer" 
+      },
+      "Rated": { 
+        "type": "keyword" 
+      },
+      "Released": { 
+        "type": "date", 
+        "format": "yyyy-MM-dd" 
+      },
+      "Runtime": { 
+        "type": "integer" 
+      },
+      "Genre": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Director": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Writer": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Actors": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Language": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Country": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "Awards": { 
+        "type": "text" 
+      },
+      "imdbRating": { 
+        "type": "float" 
+      },
+      "imdbID": { 
+        "type": "keyword" 
+      },
+      "Type": { 
+        "type": "keyword" 
+      }
+    }
+  }
+}
