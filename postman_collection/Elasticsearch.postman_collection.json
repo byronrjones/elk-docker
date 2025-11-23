@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "51b1021e-1b96-4b11-ab54-34d6c4b26c54",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8655553"
+	},
+	"item": [
+		{
+			"name": "Create Elasticsearch Movie Index",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mappings\": {\r\n    \"properties\": {\r\n      \"Title\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Year\": { \r\n        \"type\": \"integer\" \r\n      },\r\n      \"Rated\": { \r\n        \"type\": \"keyword\" \r\n      },\r\n      \"Released\": { \r\n        \"type\": \"date\", \r\n        \"format\": \"yyyy-MM-dd\" \r\n      },\r\n      \"Runtime\": { \r\n        \"type\": \"integer\" \r\n      },\r\n      \"Genre\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Director\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Writer\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Actors\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Language\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Country\": {\r\n        \"type\": \"text\",\r\n        \"fields\": {\r\n          \"keyword\": {\r\n            \"type\": \"keyword\"\r\n          }\r\n        }\r\n      },\r\n      \"Awards\": { \r\n        \"type\": \"text\" \r\n      },\r\n      \"imdbRating\": { \r\n        \"type\": \"float\" \r\n      },\r\n      \"imdbID\": { \r\n        \"type\": \"keyword\" \r\n      },\r\n      \"Type\": { \r\n        \"type\": \"keyword\" \r\n      }\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies"
+					]
+				},
+				"description": "Use this request to create the Movie Index within Elasticsearch"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Movies via File",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "///wsl.localhost/Ubuntu-24.04/home/byron/repos/elk-docker/movies250_v3.json"
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies/_bulk",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exact Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"match\": {\"Title\": \"godfather\"}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies/_search",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fuzzy Match Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"match\": {\"Title\": { \"query\": \"godfthr\", \"fuzziness\": \"AUTO\"}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies/_search",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multi Field Match Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"multi_match\": {\r\n            \"query\": \"Christopher Nolan\",\r\n            \"fields\": [\"Title\",\"Director\", \"Actors\"]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies/_search",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Phrase Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeme",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": {\r\n        \"match_phrase\": { \"Title.keyword\": \"The Godfather\" }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/movies/_search",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"movies",
+						"_search"
+					]
+				},
+				"description": "Match entire phase as one unit"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
