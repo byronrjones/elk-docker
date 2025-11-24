@@ -1,5 +1,5 @@
 confluent-kafka
 Faker
 apache-airflow
-elasticsearch
+elasticsearch>=8,<9
 boto3
